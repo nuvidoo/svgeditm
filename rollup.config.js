@@ -84,6 +84,7 @@ const config = [{
         { src: 'src/editor/images', dest },
         { src: 'src/editor/components/jgraduate/images', dest: dest.map((d) => `${d}/components/jgraduate`) },
         { src: 'src/editor/extensions/ext-shapes/shapelib', dest: dest.map((d) => `${d}/extensions/ext-shapes`) },
+        { src: 'src/editor/extensions/ext-shapes/isglib', dest: dest.map((d) => `${d}/extensions/ext-shapes`) },
         { src: 'src/editor/embedapi.html', dest },
         { src: 'src/editor/embedapi.js', dest },
         { src: 'src/editor/browser-not-supported.html', dest },

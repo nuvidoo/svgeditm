@@ -32,7 +32,7 @@ export default {
 
     const modeId = 'shapelib'
     const startClientPos = {}
-
+    const mode2Id ='isglib'
     let curShape
     let startX
     let startY
@@ -52,10 +52,23 @@ export default {
             }
           })
         }
+        if ($id('isglib') === null) {
+          const extPath = svgEditor.configObj.curConfig.extPath
+          const buttonTemplate = `
+          <se-explorerbutton id="isglib" title="${svgEditor.i18next.t(`${name}:buttons.0.title`)}" lib="${extPath}/ext-shapes/isglib/"
+          src="shapelib.svg"></se-explorerbutton>
+          `
+          canv.insertChildAtIndex($id('tools_left'), buttonTemplate, 10)
+          $click($id('isglib'), () => {
+            if (this.leftPanel.updateLeftPanel('isglib')) {
+              canv.setMode(mode2Id)
+            }
+          })
+        }
       },
       mouseDown (opts) {
         const mode = canv.getMode()
-        if (mode !== modeId) { return undefined }
+        if (mode !== (modeId && mode2Id)) { return undefined }
 
         const currentD = document.getElementById('tool_shapelib').dataset.draw
         startX = opts.start_x
@@ -90,7 +103,7 @@ export default {
       },
       mouseMove (opts) {
         const mode = canv.getMode()
-        if (mode !== modeId) { return }
+        if (mode !== (modeId && mode2Id)) { return }
 
         const zoom = canv.getZoom()
         const evt = opts.event
@@ -147,7 +160,7 @@ export default {
       },
       mouseUp (opts) {
         const mode = canv.getMode()
-        if (mode !== modeId) { return undefined }
+        if (mode !== (modeId && mode2Id)) { return undefined }
 
         const keepObject = (opts.event.clientX !== startClientPos.x && opts.event.clientY !== startClientPos.y)
 
