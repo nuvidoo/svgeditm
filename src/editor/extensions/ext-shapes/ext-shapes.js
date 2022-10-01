@@ -68,7 +68,7 @@ export default {
       },
       mouseDown (opts) {
         const mode = canv.getMode()
-        if (mode !== (modeId && mode2Id)) { return undefined }
+        if (mode !== (modeId || mode2Id)) { return undefined }
 
         const currentD = document.getElementById('tool_shapelib').dataset.draw
         startX = opts.start_x
@@ -103,7 +103,7 @@ export default {
       },
       mouseMove (opts) {
         const mode = canv.getMode()
-        if (mode !== (modeId && mode2Id)) { return }
+        if (mode !== (modeId || mode2Id)) { return }
 
         const zoom = canv.getZoom()
         const evt = opts.event
@@ -160,7 +160,7 @@ export default {
       },
       mouseUp (opts) {
         const mode = canv.getMode()
-        if (mode !== (modeId && mode2Id)) { return undefined }
+        if (mode !== (modeId || mode2Id)) { return undefined }
 
         const keepObject = (opts.event.clientX !== startClientPos.x && opts.event.clientY !== startClientPos.y)
 
