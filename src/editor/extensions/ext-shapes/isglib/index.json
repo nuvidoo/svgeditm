@@ -1,18 +1,6 @@
 {
     "lib": [
         "isg",
-        "animal",
-        "arrow",
-        "dialog_balloon",
-        "electronics",
-        "flowchart",
-        "game",
-        "math",
-        "misc",
-        "music",
-        "object",
-        "raphael_1",
-        "raphael_2",
-        "symbol"
+        "arrow"
     ]
 }
