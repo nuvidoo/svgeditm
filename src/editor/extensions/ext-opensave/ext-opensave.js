@@ -257,6 +257,8 @@ export default {
         svgCanvas.insertChildAtIndex($id('main_button'), saveAsButtonTemplate, 3)
         const importButtonTemplate = '<se-menu-item id="tool_import" label="tools.import_doc" src="importImg.svg"></se-menu-item>'
         svgCanvas.insertChildAtIndex($id('main_button'), importButtonTemplate, 4)
+        //const saveDatabaseButtonTemplate = '<se-menu-item id="tool_saveDatabase" label="tools.saveDatabase_doc" src="importImg.svg"></se-menu-item>'
+        //svgCanvas.insertChildAtIndex($id('main_button'), importButtonTemplate, 5)
 
         // handler
         $click($id('tool_clear'), clickClear.bind(this))
@@ -264,6 +266,7 @@ export default {
         $click($id('tool_save'), clickSave.bind(this, 'save'))
         $click($id('tool_save_as'), clickSave.bind(this, 'saveas'))
         $click($id('tool_import'), () => imgImport.click())
+        //$click($id('tool_saveDatabase'), clickSave.bind(this,'savedatabase'))
       }
     }
   }
